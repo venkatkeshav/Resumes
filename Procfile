@@ -1,0 +1,1 @@
+web: gunicorn Trail1.wsgi 
