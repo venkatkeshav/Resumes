@@ -1,0 +1,18 @@
+{% extends 'basic.html' %}
+{% block heading %} the studnets profiles {% endblock %}
+{%  block main_body %}
+<h1>
+    You are searching for the future Heros of IIIT-T ,YOu are at the right Place
+</h1>
+<p>
+    Here you can see all the final year Students of IIIT-T ready for Placement
+</p>
+<h2>
+    Here are Our Candidates
+</h2>
+<p>
+    the total number of Studnets : {{ num_students }} <br>
+    ECE students : {{ num_ECE }}<br>
+    CSE studenst : {{ num_CSE }}
+</p>
+{% endblock %}

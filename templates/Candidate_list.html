@@ -1,0 +1,78 @@
+{% extends 'basic.html' %}
+{% block title %} Student Profiles
+{% endblock %}
+{% block main_body %}
+{% if user.is_authenticated %}
+
+<h1>
+  <small class="text-muted">STUDENT PROFILES</small>
+    
+</h1><br/>
+<h2> ELECTRONICS AND COMMUNICATION ENGINEERING </h2><br/>
+  {% if Candidate_list %}
+  {% load static %}
+  <ul>
+    <div class="row row-cols-1 row-cols-md-5 g-4">
+    {% for student in Candidate_list %}
+    {% if student.Branch == 'ECE'%}
+    <div class="col">
+      <div class="card " style="background-color :#e3f2fd;">
+        
+        {% if student.pic %}
+        
+        <img src="{{ student.pic.url}}" class="card-img-top" alt="..." height="250" width="30">
+        {% load static %}
+        {% else %}
+        <img src="{% static 'default pic boy.jfif'%}" class="card-img-top" alt="..." height="200" width="80">
+        {% endif %}
+        <div class="card-body">
+          <h5 class="card-title">{{ student.First_Name}} {{ student.Last_Name }}</h5>
+          <p class="card-text">{{ student.phone }}<br/>{{student.EMAil}}<br/> {{ student.Branch}}</p>
+         <!-- <a href="#" style="color:rgb(0,0,0);"> Candidate Resume </a>-->
+        </div>
+      </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+    </div>
+  </ul>
+  {% else %}
+    <p>There are no student profiles.</p>
+  {% endif %} <br/>
+  <h2>COMPUTER SCIENCE AND ENGINEERING </h2><br/>
+  {% if Candidate_list %}
+  {% load static %}
+  <ul>
+    <div class="row row-cols-1 row-cols-md-5 g-4">
+    {% for student in Candidate_list %}
+    {% if student.Branch == 'CSE'%}
+    <div class="col">
+      <div class="card"  style="background-color :#e3f2fd;">
+        {% if student.pic %}
+        <img src="{{ student.pic.url}}" class="card-img-top" alt="..." , height="250" width="30">
+        {% endif %}
+        <div class="card-body">
+          <h5 class="card-title">{{ student.First_Name}} {{ student.Last_Name }}</h5>
+          <p class="card-text">{{ student.phone }}<br/>{{student.EMAil}}<br/> {{ student.Branch}}</p>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+    </div>
+  </ul>
+  {% else %}
+    <p>There are no student profiles.</p>
+  {% endif %} 
+
+  
+
+</div>
+
+{% else %}
+
+<h3>
+  YOU NEED TO <a href="accounts/login" >LOGIN</a> TO ACCESS THIS Page
+</h3>
+{% endif %}
+{% endblock %}
