@@ -2,7 +2,6 @@
 {% block title %} Student Profiles
 {% endblock %}
 {% block main_body %}
-{% if user.is_authenticated %}
 
 <h1>
   <small class="text-muted">STUDENT PROFILES</small>
@@ -69,10 +68,4 @@
 
 </div>
 
-{% else %}
-
-<h3>
-  YOU NEED TO <a href="accounts/login" >LOGIN</a> TO ACCESS THIS Page
-</h3>
-{% endif %}
 {% endblock %}
